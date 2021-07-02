@@ -12,7 +12,6 @@ export default function SignUpJobSeeker() {
             width: "900.985px",
             marginTop: 126,
             marginBottom: 192,
-            textShadow: "0px 0px 12px var(--bs-gray-dark)",
             background: "transparent",
           }}
         >

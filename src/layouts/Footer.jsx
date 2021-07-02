@@ -29,7 +29,7 @@ function Footer(props) {
                 <a href="#about" className="scrollto">
                   About
                 </a>
-                <a href="#">Privacy Policy</a>
+                <a href={"#"}>Privacy Policy</a>
                 <a href="#">Terms of Use</a>
               </nav>
             </div>
