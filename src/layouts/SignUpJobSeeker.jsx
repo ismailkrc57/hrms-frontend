@@ -37,7 +37,14 @@ export default function SignUpJobSeeker() {
  
   const handleSubmit = (values)=>{
      const jobSeekerService = new JobSeekerService();
-     jobSeekerService.addJobSeeker(values).then(msg=>msg.success?(toast.success(msg.data.message)):(toast.error(msg.data.message)))
+     jobSeekerService.addJobSeeker(values).then(msg=>{
+       if (msg.data.success) {
+         toast.success(msg.data.message)
+       }
+       else{
+         toast.error(msg.data.message)
+       }
+     })
   }
   
 
