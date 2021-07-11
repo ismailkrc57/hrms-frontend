@@ -1,18 +1,18 @@
 // import default style
 import Footer from './layouts/Footer';
 import './App.css';
-import Dashboard from './layouts/Dashboard';
 import Navi from "./layouts/Navi.jsx";
-import Section from './layouts/Section';
 import SignUpJobSeeker from './layouts/SignUpJobSeeker';
 import SignInJobSeeker from './layouts/SignInJobSeeker';
 import MainPage from './layouts/MainPage';
 import { Route } from 'react-router';
+import { ToastContainer } from 'react-toastify';
 
 
 function App() {
     return (
       <div className="App">
+        <ToastContainer position="top-center" />
         <Navi />
         {/* <Section /> */}
         {/* <Dashboard /> */}

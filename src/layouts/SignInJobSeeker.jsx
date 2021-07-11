@@ -29,6 +29,7 @@ export default function SignInJobSeeker() {
               data-bss-hover-animate="swing"
             >
               <img
+                alt="resim"
                 className="img-fluid"
                 src="assets/img/looney-virtual-reality.png?h=aab6a6c7b35eed7afcaa16c536ddc4aa"
                 width="350px"
@@ -71,7 +72,10 @@ export default function SignInJobSeeker() {
                         }}
                       >
                         <span className="input-group-text">
-                          <i className="fas fa-lock" style={{ fontSize: 15 }} />
+                          <i
+                            className="fa fa-envelope-open"
+                            style={{ fontSize: 15 }}
+                          />
                         </span>
                         <input
                           className="form-control"
