@@ -1,10 +1,18 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import KrcTextInput from "../utilities/CustomFormElements/KrcTextInput";
+import { Link, useHistory } from "react-router-dom";
+import KrcTextInput from "../../utilities/CustomFormElements/KrcTextInput";
 import * as Yup from "yup";
 import { Form, Formik } from "formik";
+import JobSeekerService from "../../services/JobSeekerService";
+import { toast } from "react-toastify";
+import { useDispatch } from "react-redux";
+import { signIn } from "../../store/actions/userActions";
 
-export default function SignInJobSeeker() {
+
+export default function SignInEmployer() {
+  const dispatch = useDispatch();
+  let history = useHistory();
+
   const initialValues = {
     mail: "",
     password: "",
@@ -14,8 +22,28 @@ export default function SignInJobSeeker() {
     password: Yup.string().required("please enter password"),
   });
   const handleSubmit = (values) => {
-    console.log(values);
+    const jobSeekerService = new JobSeekerService();
+    jobSeekerService
+      .getJobSeekerByMailAndPassword(values.mail, values.password)
+      .then((emplyr) => {
+        if (emplyr.data.success) {
+          toast.success("Login Successful", {
+            autoClose: 2000,
+            hideProgressBar: true,
+            closeOnClick: true,
+          });
+          dispatch(signIn(emplyr.data.data));
+          history.push("/");
+        } else {
+          toast.error("Please Check informations", {
+            autoClose: 2000,
+            hideProgressBar: true,
+            closeOnClick: true,
+          });
+        }
+      });
   };
+
   return (
     <div>
       <div className="d-flex flex-row flex-grow-1 flex-shrink-1 flex-fill justify-content-center align-items-center align-content-center align-self-center flex-wrap m-auto">
@@ -29,7 +57,7 @@ export default function SignInJobSeeker() {
           }}
         >
           <div
-            className="row"
+            className=" mx-sm-1 row"
             style={{
               borderRadius: 30,
               borderWidth: 2,
@@ -45,9 +73,9 @@ export default function SignInJobSeeker() {
               <img
                 alt={"resim".toString()}
                 className="img-fluid"
-                src="assets/img/signin.svg"
+                src="assets/img/corporate.svg"
                 width="350px"
-                style={{ textAlign: "center" }}
+                style={{ textAlign: "center", margin:"71px" }}
               />
             </div>
             <div className="col d-flex flex-column flex-grow-1 flex-shrink-1 justify-content-center align-items-stretch align-content-stretch flex-wrap m-auto">
@@ -103,15 +131,25 @@ export default function SignInJobSeeker() {
                           <button
                             className="btn btn-primary border rounded-2"
                             type="submit"
-                            style={{ width: "150.4673px", fontWeight: "bold" }}
+                            style={{
+                              width: "150.4673px",
+                              fontWeight: "bold",
+                            }}
                           >
                             Sign In
                           </button>
                         </div>
                       </div>
-                      <Link to="/SignUpJobSeeker">
-                        I don't have an <b> Account?</b>
-                      </Link>
+                      <div className="row">
+                        <Link to="/SignUpEmployer">
+                          I don't have an <b> Account?</b>
+                        </Link>
+                      </div>
+                      <div className="row mt-4">
+                        <Link to="/SignInJobSeeker">
+                          I am <b>JobSeeker</b>
+                        </Link>
+                      </div>
                     </div>
                   </div>
                 </Form>

@@ -7,9 +7,9 @@ export function signIn(user){
     };
 }
 
-export function signOut(user) {
+export function signOut() {
   return {
     type: SIGN_OUT,
-    payload: user,
+    payload: {},
   };
 }

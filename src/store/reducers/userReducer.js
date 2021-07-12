@@ -8,13 +8,11 @@ export default function userReducer(state = initialState, { type, payload }) {
   switch (type) {
     case SIGN_IN:
       return {
-        ...state,
-        user: [...state.user, { name: payload }],
+        user:  payload ,
       };
     case SIGN_OUT:
       return {
-        ...state,
-        user: [],
+        user: {},
       };
     default:
       return state;

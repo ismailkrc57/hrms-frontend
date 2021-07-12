@@ -2,9 +2,9 @@ import { Form, Formik } from "formik";
 import React from "react";
 import { Link } from "react-router-dom";
 import * as Yup from "yup";
-import JobSeekerService from "../services/JobSeekerService";
-import KrcTextInput from "../utilities/CustomFormElements/KrcTextInput";
+import KrcTextInput from "../../utilities/CustomFormElements/KrcTextInput";
 import { toast } from "react-toastify";
+import JobSeekerService from "../../services/JobSeekerService";
 
 export default function SignUpJobSeeker() {
   const initialValues = {
@@ -50,7 +50,7 @@ export default function SignUpJobSeeker() {
     <div>
       <div className="d-flex flex-row flex-grow-1 flex-shrink-1 flex-fill justify-content-center align-items-center align-content-center align-self-center  m-auto">
         <div
-          className="container border rounded shadow"
+          className="container border rounded-2 shadow"
           style={{
             width: "900.985px",
             marginTop: 126,
@@ -76,7 +76,7 @@ export default function SignUpJobSeeker() {
                 alt={"resim".toString()}
                 className="img-fluid"
                 src="assets/img/signup.svg"
-                width="350px"
+                width="380px"
                 style={{ textAlign: "center" }}
               />
             </div>

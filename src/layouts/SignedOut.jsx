@@ -18,10 +18,7 @@ export default function SignedOut({signIn}) {
 
       <div className="col-md-3  d-flex-center me-2 d-inline">
         <Link to="/SignInJobSeeker">
-          <button
-            type="button"
-            className="btn btn-outline-primary mx-2"
-          >
+          <button type="button" className="btn btn-outline-primary mx-2">
             Sign-In
           </button>
         </Link>

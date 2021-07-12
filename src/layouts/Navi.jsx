@@ -1,19 +1,19 @@
 /* eslint-disable jsx-a11y/anchor-has-content */
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React,{useState} from "react";
+import React from "react";
 import SignedOut from "./SignedOut";
 import SignedIn from "./SignedIn";
 import { Link } from "react-router-dom";
+import { useDispatch,useSelector } from "react-redux";
+import { signOut } from "../store/actions/userActions";
 
 export default function Navi() {
- const [isAuthenticated, setisAuthenticated] = useState(true)
+ const dispatch = useDispatch()
+ const {user} = useSelector(state => state.userReducer)
 
  function handleSignOut(params) {
-   setisAuthenticated(false)
- }
- function handleSignIn(params) {
-   setisAuthenticated(true);
+   dispatch(signOut({}));
  }
 
   return (
@@ -22,8 +22,8 @@ export default function Navi() {
         <div className="container">
           <div className="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
             <div className="logo  mx-5">
-              <h1 style={{textDecoration:"underline"}}>
-                <Link to="/" >H.R.M.S.</Link>
+              <h1 style={{ textDecoration: "underline" }}>
+                <Link to="/">H.R.M.S.</Link>
               </h1>
               {/* Uncomment below if you prefer to use an image logo */}
               {/* <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>*/}
@@ -59,7 +59,12 @@ export default function Navi() {
                 aria-label="Search"
               />
             </form>
-            {isAuthenticated ? <SignedIn signOut = {handleSignOut} /> : <SignedOut signIn={handleSignIn} />}
+            {/* {isAuthenticated ? <SignedIn signOut = {handleSignOut} /> : <SignedOut signIn={handleSignIn} />} */}
+            {user.name!==undefined ? (
+              <SignedIn signOut={handleSignOut} />
+            ) : (
+              <SignedOut />
+            )}
           </div>
         </div>
       </header>
