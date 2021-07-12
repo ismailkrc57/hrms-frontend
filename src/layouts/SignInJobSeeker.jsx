@@ -1,7 +1,21 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import KrcTextInput from "../utilities/CustomFormElements/KrcTextInput";
+import * as Yup from "yup";
+import { Form, Formik } from "formik";
 
 export default function SignInJobSeeker() {
+  const initialValues = {
+    mail: "",
+    password: "",
+  };
+  const schema = Yup.object({
+    mail: Yup.string().email().required("Please enter e-mail"),
+    password: Yup.string().required("please enter password"),
+  });
+  const handleSubmit = (values) => {
+    console.log(values);
+  };
   return (
     <div>
       <div className="d-flex flex-row flex-grow-1 flex-shrink-1 flex-fill justify-content-center align-items-center align-content-center align-self-center flex-wrap m-auto">
@@ -29,130 +43,79 @@ export default function SignInJobSeeker() {
               data-bss-hover-animate="swing"
             >
               <img
-                alt="resim"
+                alt={"resim".toString()}
                 className="img-fluid"
-                src="assets/img/looney-virtual-reality.png?h=aab6a6c7b35eed7afcaa16c536ddc4aa"
+                src="assets/img/signin.svg"
                 width="350px"
                 style={{ textAlign: "center" }}
               />
             </div>
             <div className="col d-flex flex-column flex-grow-1 flex-shrink-1 justify-content-center align-items-stretch align-content-stretch flex-wrap m-auto">
-              <form style={{ fontFamily: "Poppins, sans-serif", fontSize: 14 }}>
-                <h1
-                  style={{
-                    textAlign: "center",
-                    fontSize: "31.8857px",
-                    marginTop: 4,
-                  }}
+              <Formik
+                initialValues={initialValues}
+                validationSchema={schema}
+                onSubmit={(values) => handleSubmit(values)}
+              >
+                <Form
+                  style={{ fontFamily: "Poppins, sans-serif", fontSize: 14 }}
                 >
-                  Sign In
-                </h1>
-                <div className="row" style={{ marginBottom: 4 }}>
-                  <div className="col">
-                    <div style={{ marginBottom: 6, marginTop: 15 }}>
-                      <p
-                        className="text-center text-body"
-                        style={{
-                          marginLeft: 0,
-                          marginBottom: 0,
-                          fontWeight: "bold",
-                          textAlign: "center",
-                        }}
-                      >
-                        E-mail
-                      </p>
-                      <div
-                        className="input-group input-group-sm text-lowercase border rounded d-flex flex-row align-content-start"
-                        style={{
-                          fontSize: 16,
-                          borderRadius: 0,
-                          background: "transparent",
-                          borderStyle: "solid",
-                          borderColor: "var(--bs-blue)",
-                        }}
-                      >
-                        <span className="input-group-text">
-                          <i
-                            className="fa fa-envelope-open"
-                            style={{ fontSize: 15 }}
-                          />
-                        </span>
-                        <input
-                          className="form-control"
-                          type="email"
-                          inputMode="email"
-                          required
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="row" style={{ marginBottom: 4 }}>
-                  <div className="col">
-                    <div style={{ marginBottom: 6 }}>
-                      <p
-                        className="text-center text-body"
-                        style={{
-                          marginLeft: 0,
-                          marginBottom: 0,
-                          fontWeight: "bold",
-                          textAlign: "center",
-                        }}
-                      >
-                        Password&nbsp;
-                      </p>
-                      <div
-                        className="input-group input-group-sm text-lowercase border rounded d-flex flex-row align-content-start"
-                        style={{
-                          fontSize: 16,
-                          borderRadius: 0,
-                          background: "transparent",
-                          borderStyle: "solid",
-                          borderColor: "var(--bs-blue)",
-                        }}
-                      >
-                        <span className="input-group-text">
-                          <i className="fas fa-lock" style={{ fontSize: 15 }} />
-                        </span>
-                        <input
-                          className="form-control"
-                          type="password"
-                          required
-                          minLength={7}
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="row" style={{ marginBottom: 4 }}>
-                  <div
-                    className="col"
+                  <h1
                     style={{
-                      marginTop: 5,
-                      marginBottom: 10,
                       textAlign: "center",
+                      fontSize: "31.8857px",
+                      marginTop: 4,
                     }}
                   >
-                    <div
-                      className="d-flex flex-row flex-grow-1 flex-shrink-1 flex-fill justify-content-center align-items-center align-content-center align-self-center flex-wrap m-auto mb-3"
-                      style={{ marginBottom: 6 }}
-                    >
-                      <div className="btn-group" role="group">
-                        <button
-                          className="btn btn-primary border rounded-0"
-                          type="submit"
-                          style={{ width: "150.4673px", fontWeight: "bold" }}
-                        >
-                          Sign In
-                        </button>
-                      </div>
-                    </div>
-                    <Link to="/SignUpJobSeeker">
-                      I don't have an <b> Account?</b>
-                    </Link>
+                    Sign In
+                  </h1>
+                  <div className="row" style={{ marginBottom: 4 }}>
+                    <KrcTextInput
+                      name="mail"
+                      placeholder="test@test.com"
+                      type="email"
+                      labelname="E-mail"
+                      icon="fa fa-envelope-open"
+                    />
                   </div>
-                </div>
-              </form>
+                  <div className="row" style={{ marginBottom: 4 }}>
+                    <KrcTextInput
+                      name="password"
+                      placeholder=""
+                      type="password"
+                      labelname="Password"
+                      icon="fas fa-lock"
+                    />
+                  </div>
+                  <div className="row" style={{ marginBottom: 4 }}>
+                    <div
+                      className="col"
+                      style={{
+                        marginTop: 5,
+                        marginBottom: 10,
+                        textAlign: "center",
+                      }}
+                    >
+                      <div
+                        className="d-flex flex-row flex-grow-1 flex-shrink-1 flex-fill justify-content-center align-items-center align-content-center align-self-center flex-wrap m-auto mb-3"
+                        style={{ marginBottom: 6 }}
+                      >
+                        <div className="btn-group" role="group">
+                          <button
+                            className="btn btn-primary border rounded-2"
+                            type="submit"
+                            style={{ width: "150.4673px", fontWeight: "bold" }}
+                          >
+                            Sign In
+                          </button>
+                        </div>
+                      </div>
+                      <Link to="/SignUpJobSeeker">
+                        I don't have an <b> Account?</b>
+                      </Link>
+                    </div>
+                  </div>
+                </Form>
+              </Formik>
             </div>
           </div>
         </div>

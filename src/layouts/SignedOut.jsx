@@ -6,12 +6,12 @@ export default function SignedOut({signIn}) {
   return (
     <div>
       {/* <div className="d-inline" >
-          <a className="getstarted d-inline" href="#">
+          <a className="getstarted d-inline" href={"".toString()}="#">
             Sign In
           </a>
         </div>
         <div className="d-inline">
-          <a className="getstarted d-inline" href="#">
+          <a className="getstarted d-inline" href={"".toString()}="#">
             Sign Up
           </a>
         </div> */}

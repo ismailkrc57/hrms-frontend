@@ -18,19 +18,21 @@ function Footer(props) {
                 {/* Licensing information: https://bootstrapmade.com/license/ */}
                 {/* Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/vesperr-free-bootstrap-template/ */}
                 Designed by{" "}
-                <a href="https://github.com/ismailkrc57">ismail KARACA</a>
+                <a href={"https://github.com/ismailkrc57".toString()}>
+                  ismail KARACA
+                </a>
               </div>
             </div>
             <div className="col-lg-6">
               <nav className="footer-links text-lg-right text-center pt-2 pt-lg-0">
-                <a href="#intro" className="scrollto">
+                <a href={"#".toString()} className="scrollto">
                   Home
                 </a>
-                <a href="#about" className="scrollto">
+                <a href={"#".toString()} className="scrollto">
                   About
                 </a>
-                <a href={"#"}>Privacy Policy</a>
-                <a href="#">Terms of Use</a>
+                <a href={"#".toString()}>Privacy Policy</a>
+                <a href={"#".toString()}>Terms of Use</a>
               </nav>
             </div>
           </div>

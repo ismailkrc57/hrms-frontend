@@ -17,19 +17,19 @@ export default function JobAdvertisementList() {
                     <img
                       src="assets/img/team/team-1.jpg"
                       className="img-fluid"
-                      alt
+                      alt={"image".toString()}
                     />
                     <div className="social">
-                      <a href>
+                      <a href={"".toString()}>
                         <i className="bi bi-twitter" />
                       </a>
-                      <a href>
+                      <a href={"".toString()}>
                         <i className="bi bi-facebook" />
                       </a>
-                      <a href>
+                      <a href={"".toString()}>
                         <i className="bi bi-instagram" />
                       </a>
-                      <a href>
+                      <a href={"".toString()}>
                         <i className="bi bi-linkedin" />
                       </a>
                     </div>
@@ -46,19 +46,19 @@ export default function JobAdvertisementList() {
                     <img
                       src="assets/img/team/team-2.jpg"
                       className="img-fluid"
-                      alt
+                      alt={"image".toString()}
                     />
                     <div className="social">
-                      <a href>
+                      <a href={"".toString()}>
                         <i className="bi bi-twitter" />
                       </a>
-                      <a href>
+                      <a href={"".toString()}>
                         <i className="bi bi-facebook" />
                       </a>
-                      <a href>
+                      <a href={"".toString()}>
                         <i className="bi bi-instagram" />
                       </a>
-                      <a href>
+                      <a href={"".toString()}>
                         <i className="bi bi-linkedin" />
                       </a>
                     </div>
@@ -75,19 +75,19 @@ export default function JobAdvertisementList() {
                     <img
                       src="assets/img/team/team-3.jpg"
                       className="img-fluid"
-                      alt
+                      alt={"image".toString()}
                     />
                     <div className="social">
-                      <a href>
+                      <a href={"".toString()}>
                         <i className="bi bi-twitter" />
                       </a>
-                      <a href>
+                      <a href={"".toString()}>
                         <i className="bi bi-facebook" />
                       </a>
-                      <a href>
+                      <a href={"".toString()}>
                         <i className="bi bi-instagram" />
                       </a>
-                      <a href>
+                      <a href={"".toString()}>
                         <i className="bi bi-linkedin" />
                       </a>
                     </div>
@@ -104,19 +104,19 @@ export default function JobAdvertisementList() {
                     <img
                       src="assets/img/team/team-4.jpg"
                       className="img-fluid"
-                      alt
+                      alt={"image".toString()}
                     />
                     <div className="social">
-                      <a href>
+                      <a href={"".toString()}>
                         <i className="bi bi-twitter" />
                       </a>
-                      <a href>
+                      <a href={"".toString()}>
                         <i className="bi bi-facebook" />
                       </a>
-                      <a href>
+                      <a href={"".toString()}>
                         <i className="bi bi-instagram" />
                       </a>
-                      <a href>
+                      <a href={"".toString()}>
                         <i className="bi bi-linkedin" />
                       </a>
                     </div>

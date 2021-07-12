@@ -34,20 +34,17 @@ export default function SignUpJobSeeker() {
       "Passwords must match"
     ),
   });
- 
-  const handleSubmit = (values)=>{
-     const jobSeekerService = new JobSeekerService();
-     jobSeekerService.addJobSeeker(values).then(msg=>{
-       if (msg.data.success) {
-         toast.success(msg.data.message)
-       }
-       else{
-         toast.error(msg.data.message)
-       }
-     })
-  }
-  
 
+  const handleSubmit = (values) => {
+    const jobSeekerService = new JobSeekerService();
+    jobSeekerService.addJobSeeker(values).then((msg) => {
+      if (msg.data.success) {
+        toast.success(msg.data.message);
+      } else {
+        toast.error(msg.data.message);
+      }
+    });
+  };
 
   return (
     <div>
@@ -76,9 +73,9 @@ export default function SignUpJobSeeker() {
               data-bss-hover-animate="swing"
             >
               <img
-                alt="resim"
+                alt={"resim".toString()}
                 className="img-fluid"
-                src="assets/img/looney-sign-up-form.png?h=e499cfee6b5d59ffcdb6a7e31983b80d"
+                src="assets/img/signup.svg"
                 width="350px"
                 style={{ textAlign: "center" }}
               />
@@ -109,7 +106,7 @@ export default function SignUpJobSeeker() {
                       name="name"
                       placeholder="name"
                       type="text"
-                      labelName="Name"
+                      labelname="Name"
                       icon="fas fa-user"
                     />
 
@@ -117,7 +114,7 @@ export default function SignUpJobSeeker() {
                       name="surname"
                       placeholder="surname"
                       type="text"
-                      labelName="Surname"
+                      labelname="Surname"
                       icon="fas fa-user"
                     />
                   </div>
@@ -126,14 +123,14 @@ export default function SignUpJobSeeker() {
                       name="mail"
                       placeholder="test@test.com"
                       type="email"
-                      labelName="E-mail"
+                      labelname="E-mail"
                       icon="fa fa-envelope-open"
                     />
                     <KrcTextInput
                       name="nationalityId"
                       placeholder="12345678901"
                       type="text"
-                      labelName="Nationality Id"
+                      labelname="Nationality Id"
                       icon="fas fa-id-card"
                     />
                   </div>
@@ -142,7 +139,7 @@ export default function SignUpJobSeeker() {
                       name="birthDay"
                       placeholder=""
                       type="date"
-                      labelName="Birthday"
+                      labelname="Birthday"
                       icon="bi bi-calendar2-date-fill"
                     />
                   </div>
@@ -151,7 +148,7 @@ export default function SignUpJobSeeker() {
                       name="password"
                       placeholder=""
                       type="password"
-                      labelName="Password"
+                      labelname="Password"
                       icon="fas fa-lock"
                     />
                   </div>
@@ -160,7 +157,7 @@ export default function SignUpJobSeeker() {
                       name="passwordRepeat"
                       placeholder=""
                       type="password"
-                      labelName="Password Repeat"
+                      labelname="Password Repeat"
                       icon="fas fa-lock"
                     />
                   </div>

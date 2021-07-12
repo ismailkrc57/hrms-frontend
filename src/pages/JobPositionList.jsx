@@ -21,17 +21,17 @@ export default function JobPositionList() {
           </div>
           <div className="row">
             {jobPositions.map((jobPosition) => (
-              <div className="col-md-6 col-lg-3  align-items-stretch mb-3">
+              <div key={jobPosition.id} className="col-md-6 col-lg-3  align-items-stretch mb-3">
                 <div
                   className="icon-box"
                   data-aos="fade-up"
                   data-aos-delay={100}
                 >
                   <div className="icon">
-                    <i class="fab fa-react"></i>
+                    <i className="fab fa-react"></i>
                   </div>
                   <h4 className="title">
-                    <a href>{jobPosition.positionName}</a>
+                    <a href={"".toString()}>{jobPosition.positionName}</a>
                   </h4>
                   <p className="description">
 

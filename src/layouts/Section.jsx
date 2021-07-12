@@ -11,7 +11,7 @@ export default function Section() {
             <div className="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
               <h1 data-aos="fade-up">Find your business with H.R.M.S.</h1>
               <div data-aos="fade-up" data-aos-delay={800}>
-                <a href="#about" className="btn-get-started scrollto">
+                <a href={"".toString()} className="btn-get-started scrollto">
                   Get Started
                 </a>
               </div>
@@ -25,7 +25,7 @@ export default function Section() {
               <img
                 src="assets/img/hero-img.png"
                 className="img-fluid animated"
-                alt
+                alt={"image".toString()}
               />
             </div>
           </div>

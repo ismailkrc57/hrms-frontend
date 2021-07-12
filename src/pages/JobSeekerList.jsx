@@ -23,11 +23,11 @@ export default function JobSeekerList() {
           <div className="row" data-aos="fade-up" data-aos-delay={300}>
             {
             jobSeekers.map((jobSeeker) => (
-              <div className="col-lg-3 col-md-4 mb-4">
+              <div key={jobSeeker.id} className="col-lg-3 col-md-4 mb-4">
                 <div className="icon-box">
                   <i className="ri-store-line" style={{ color: "#ffbb2c" }} />
                   <h3>
-                    <a href>{jobSeeker.name + " " + jobSeeker.surname}</a>
+                    <a href={"".toString()}>{jobSeeker.name + " " + jobSeeker.surname}</a>
                   </h3>
                 </div>
               </div>

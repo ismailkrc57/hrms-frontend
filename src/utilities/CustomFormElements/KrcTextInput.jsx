@@ -16,7 +16,7 @@ export default function KrcTextInput({ ...props }) {
             textAlign: "center",
           }}
         >
-          {props.labelName}
+          {props.labelname}
         </p>
         <div
           className="input-group input-group-sm text-lowercase border rounded d-flex flex-row align-content-start"
