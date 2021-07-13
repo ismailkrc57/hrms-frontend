@@ -5,12 +5,14 @@ import * as Yup from "yup";
 import { Form, Formik } from "formik";
 import JobSeekerService from "../../services/JobSeekerService";
 import { toast } from "react-toastify";
-import { useDispatch } from "react-redux";
+import { useDispatch,useSelector } from "react-redux";
 import { signIn } from "../../store/actions/userActions";
+import userReducer from "../../store/reducers/userReducer";
 
 export default function SignInJobSeeker() {
   const dispatch = useDispatch();
   let history = useHistory();
+  const {user} = useSelector(state => state.userReducer)
 
   const initialValues = {
     mail: "",
@@ -31,8 +33,9 @@ export default function SignInJobSeeker() {
             hideProgressBar: true,
             closeOnClick: true,
           });
-          dispatch(signIn(jbs.data.data));
+          dispatch(signIn({type:0,user:jbs.data.data}));
           history.push("/");
+          //console.log(user)
         } else {
           toast.error("Please Check informations", {
             autoClose: 2000,
@@ -92,7 +95,18 @@ export default function SignInJobSeeker() {
                       marginTop: 4,
                     }}
                   >
-                    Sign In
+                    Sign In{" "}
+                    <b>
+                      <span
+                        style={{
+                          fontSize: "25px",
+                          color: "#F50057",
+                          fontWeight: "bold",
+                        }}
+                      >
+                        JobSeeker
+                      </span>
+                    </b>
                   </h1>
                   <div className="row" style={{ marginBottom: 4 }}>
                     <KrcTextInput
@@ -102,7 +116,11 @@ export default function SignInJobSeeker() {
                       labelname="E-mail"
                       icon="fa fa-envelope-open"
                     />
+                    <span style={{ textAlign: "end", fontWeight: "bold" }}>
+                      <Link to="/SignInJobSeekerWithId">With Id</Link>
+                    </span>
                   </div>
+
                   <div className="row" style={{ marginBottom: 4 }}>
                     <KrcTextInput
                       name="password"

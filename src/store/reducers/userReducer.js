@@ -12,7 +12,7 @@ export default function userReducer(state = initialState, { type, payload }) {
       };
     case SIGN_OUT:
       return {
-        user: {},
+        user: {type:-1,user:{}},
       };
     default:
       return state;

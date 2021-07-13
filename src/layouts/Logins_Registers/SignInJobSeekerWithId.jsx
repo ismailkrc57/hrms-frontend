@@ -3,36 +3,42 @@ import { Link, useHistory } from "react-router-dom";
 import KrcTextInput from "../../utilities/CustomFormElements/KrcTextInput";
 import * as Yup from "yup";
 import { Form, Formik } from "formik";
+import JobSeekerService from "../../services/JobSeekerService";
 import { toast } from "react-toastify";
 import { useDispatch } from "react-redux";
 import { signIn } from "../../store/actions/userActions";
-import EmployerService from "../../services/EmployerService";
 
-
-export default function SignInEmployer() {
+export default function SignInJobSeekerWithId() {
   const dispatch = useDispatch();
   let history = useHistory();
 
   const initialValues = {
-    mail: "",
+    nationalityId:"",
     password: "",
   };
   const schema = Yup.object({
-    mail: Yup.string().email().required("Please enter e-mail"),
+    nationalityId: Yup.string()
+      .required()
+      .matches(/^[0-9]+$/, "Must be only digits")
+      .min(11, "Must be exactly 11 digits")
+      .max(11, "Must be exactly 11 digits"),
     password: Yup.string().required("please enter password"),
   });
   const handleSubmit = (values) => {
-    const employerService = new EmployerService();
-    employerService
-      .getEmployerByMailAndPassword(values.mail, values.password)
-      .then((emplyr) => {
-        if (emplyr.data.success) {
+    const jobSeekerService = new JobSeekerService();
+    jobSeekerService
+      .getJobSeekerByNatioanlityIdAndPassword(
+        values.nationalityId,
+        values.password
+      )
+      .then((jbs) => {
+        if (jbs.data.success) {
           toast.success("Login Successful", {
             autoClose: 2000,
             hideProgressBar: true,
             closeOnClick: true,
           });
-          dispatch(signIn({ type: 1, user: emplyr.data.data }));
+          dispatch(signIn(jbs.data.data));
           history.push("/");
         } else {
           toast.error("Please Check informations", {
@@ -43,7 +49,6 @@ export default function SignInEmployer() {
         }
       });
   };
-
   return (
     <div>
       <div className="d-flex flex-row flex-grow-1 flex-shrink-1 flex-fill justify-content-center align-items-center align-content-center align-self-center flex-wrap m-auto">
@@ -72,10 +77,10 @@ export default function SignInEmployer() {
             >
               <img
                 alt={"resim".toString()}
-                className="img-fluid"
-                src="assets/img/corporate.svg"
+                className="m-4 img-fluid"
+                src="assets/img/individual.svg"
                 width="350px"
-                style={{ textAlign: "center", margin: "72.6px" }}
+                style={{ textAlign: "center" }}
               />
             </div>
             <div className="col d-flex flex-column flex-grow-1 flex-shrink-1 justify-content-center align-items-stretch align-content-stretch flex-wrap m-auto">
@@ -96,18 +101,30 @@ export default function SignInEmployer() {
                   >
                     Sign In{" "}
                     <b>
-                      <span style={{fontSize:"25px", color:"#F50057",fontWeight:"bold"}}>Employer</span>
+                      <span
+                        style={{
+                          fontSize: "25px",
+                          color: "#F50057",
+                          fontWeight: "bold",
+                        }}
+                      >
+                        JobSeeker
+                      </span>
                     </b>
                   </h1>
                   <div className="row" style={{ marginBottom: 4 }}>
                     <KrcTextInput
-                      name="mail"
-                      placeholder="test@test.com"
-                      type="email"
-                      labelname="E-mail"
-                      icon="fa fa-envelope-open"
+                      name="nationalityId"
+                      placeholder="12345678901"
+                      type="number"
+                      labelname="Nationality Id"
+                      icon="fa fa-id-card"
                     />
+                    <span style={{ textAlign: "end", fontWeight: "bold" }}>
+                      <Link to="/SignInJobSeeker">With mail</Link>
+                    </span>
                   </div>
+
                   <div className="row" style={{ marginBottom: 4 }}>
                     <KrcTextInput
                       name="password"
@@ -144,13 +161,13 @@ export default function SignInEmployer() {
                         </div>
                       </div>
                       <div className="row">
-                        <Link to="/SignUpEmployer">
+                        <Link to="/SignUpJobSeeker">
                           I don't have an <b> Account?</b>
                         </Link>
                       </div>
                       <div className="row mt-4">
-                        <Link to="/SignInJobSeeker">
-                          I am <b>JobSeeker</b>
+                        <Link to="/SignInEmployer">
+                          I am <b>Corporate</b>
                         </Link>
                       </div>
                     </div>

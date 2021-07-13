@@ -13,7 +13,7 @@ export default function Navi() {
  const {user} = useSelector(state => state.userReducer)
 
  function handleSignOut(params) {
-   dispatch(signOut({}));
+   dispatch(signOut({type:-1,user:{}}));
  }
 
   return (
@@ -60,7 +60,7 @@ export default function Navi() {
               />
             </form>
             {/* {isAuthenticated ? <SignedIn signOut = {handleSignOut} /> : <SignedOut signIn={handleSignIn} />} */}
-            {user.name!==undefined ? (
+            {user.type!==-1 ? (
               <SignedIn signOut={handleSignOut} />
             ) : (
               <SignedOut />

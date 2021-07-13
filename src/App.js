@@ -1,33 +1,40 @@
 // import default style
-import Footer from './layouts/Footer';
-import './App.css';
+import Footer from "./layouts/Footer";
+import "./App.css";
 import Navi from "./layouts/Navi.jsx";
-import SignUpJobSeeker from './layouts/Logins_Registers/SignUpJobSeeker';
-import SignInJobSeeker from './layouts/Logins_Registers/SignInJobSeeker';
-import MainPage from './layouts/MainPage';
-import { Route } from 'react-router';
-import { ToastContainer } from 'react-toastify';
-import Switch from 'react-bootstrap/esm/Switch';
-import SignInEmployer from './layouts/Logins_Registers/SignInEmployer';
-
+import SignUpJobSeeker from "./layouts/Logins_Registers/SignUpJobSeeker";
+import SignInJobSeeker from "./layouts/Logins_Registers/SignInJobSeeker";
+import MainPage from "./layouts/MainPage";
+import { Route,Switch } from "react-router";
+import { ToastContainer } from "react-toastify";
+import SignInEmployer from "./layouts/Logins_Registers/SignInEmployer";
+import SignInJobSeekerWithId from "./layouts/Logins_Registers/SignInJobSeekerWithId";
+import NotFound from "./layouts/NotFound/NotFound";
 
 function App() {
-    return (
-      <div className="App">
-        <ToastContainer position="top-center" />
-        <Navi />
-        {/* <Section /> */}
-        {/* <Dashboard /> */}
-        <Switch>
-          <Route exact path="/SignUpJobSeeker" component={SignUpJobSeeker} />
-          <Route exact path="/SignInJobSeeker" component={SignInJobSeeker} />
-          <Route exact path="/SignInEmployer" component={SignInEmployer} />
-          <Route exact path="/" component={MainPage} />
-        </Switch>
+  return (
+    <div className="App">
+      <ToastContainer position="top-center" />
+      <Navi />
+      {/* <Section /> */}
+      {/* <Dashboard /> */}
+      <Switch>
+        <Route exact path="/" component={MainPage} />
+        <Route path="/SignUpJobSeeker" component={SignUpJobSeeker} />
+        <Route path="/SignInJobSeeker" component={SignInJobSeeker} />
+        <Route
+          path="/SignInJobSeekerWithId"
+          component={SignInJobSeekerWithId}
+        />
+        <Route path="/SignInEmployer" component={SignInEmployer} />
+        <Route>
+          <NotFound />
+        </Route>
+      </Switch>
 
-        <Footer />
-      </div>
-    );
+      <Footer />
+    </div>
+  );
 }
 
 export default App;
