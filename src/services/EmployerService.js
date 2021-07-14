@@ -1,15 +1,19 @@
-import axios from "axios";
-
+import axios from "./axios/axios";
 export default class EmployerService{
     getAllEmployers()
     {
-        return axios.get("http://localhost:8070/api/employers/getall");
+        
+        return axios.get("/employers/getall");
 
     }
     getEmployerByMailAndPassword(mail, password)
     {
         return axios.get(
-          `http://localhost:8070/api/employers/getByMailAndPassword?mail=${mail}&password=${password}`
+          `/employers/getByMailAndPassword?mail=${mail}&password=${password}`
         );
+    }
+    adEmployer(values)
+    {
+        return axios.post("/employers/add",values);
     }
 }

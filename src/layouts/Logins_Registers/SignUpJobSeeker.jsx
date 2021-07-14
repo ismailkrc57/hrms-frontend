@@ -99,7 +99,18 @@ export default function SignUpJobSeeker() {
                       marginTop: 4,
                     }}
                   >
-                    Sign Up
+                    Sign Up{" "}
+                    <b>
+                      <span
+                        style={{
+                          fontSize: "25px",
+                          color: "#F50057",
+                          fontWeight: "bold",
+                        }}
+                      >
+                        JobSeeker
+                      </span>
+                    </b>
                   </h1>
                   <div className="row" style={{ marginBottom: 4 }}>
                     <KrcTextInput
@@ -183,9 +194,14 @@ export default function SignUpJobSeeker() {
                           </button>
                         </div>
                       </div>
-                      <Link to="/SignInJobSeeker">
-                        I already have an <b> Account?</b>
-                      </Link>
+                      <div className="row">
+                        <Link to="/SignInJobSeeker">
+                          I already have an <b> Account?</b>
+                        </Link>
+                        <Link to="/SignUpEmployer">
+                          I  am <b> Corporate</b>
+                        </Link>
+                      </div>
                     </div>
                   </div>
                 </Form>

@@ -1,8 +1,8 @@
-import axios from "axios";
+import axios from "./axios/axios";
 
 export default class JobPositionService{
     getAllJobPositions()
     {
-        return axios.get("http://localhost:8070/api/jobpositions/getall");
+        return axios.get("/jobpositions/getall");
     }
 }

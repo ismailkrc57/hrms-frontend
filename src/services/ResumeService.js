@@ -1,8 +1,8 @@
-import axios from "axios"
+import axios from "./axios/axios"
 
 export default class ResumeService{
     getAllResumes()
     {
-        return axios.get("http://localhost:8070/api/resumes/getall");
+        return axios.get("/resumes/getall");
     }
 }

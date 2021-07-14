@@ -5,14 +5,12 @@ import * as Yup from "yup";
 import { Form, Formik } from "formik";
 import JobSeekerService from "../../services/JobSeekerService";
 import { toast } from "react-toastify";
-import { useDispatch,useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { signIn } from "../../store/actions/userActions";
-import userReducer from "../../store/reducers/userReducer";
 
 export default function SignInJobSeeker() {
   const dispatch = useDispatch();
   let history = useHistory();
-  const {user} = useSelector(state => state.userReducer)
 
   const initialValues = {
     mail: "",

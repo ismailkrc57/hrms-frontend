@@ -1,21 +1,21 @@
-import axios from "axios";
+import axios from "./axios/axios";
 
 export default class JobSeekerService {
   getAllJobSeekers() {
-    return axios.get("http://localhost:8070/api/jobseekers/getall");
+    return axios.get("/jobseekers/getall");
   }
   addJobSeeker(values) {
-    return axios.post("http://localhost:8070/api/jobseekers/add", values);
+    return axios.post("/jobseekers/add", values);
   }
   getJobSeekerByMailAndPassword(mail, password) {
     return axios.get(
-      `http://localhost:8070/api/jobseekers/getByMailAndPassword?mail=${mail}&password=${password}`
+      `/jobseekers/getByMailAndPassword?mail=${mail}&password=${password}`
     );
   }
   getJobSeekerByNatioanlityIdAndPassword(nationalityId,password)
   {
     return axios.get(
-      `http://localhost:8070/api/jobseekers/getByNationalityIdAndPassword?nationalityId=${nationalityId}&password=${password}`
+      `/jobseekers/getByNationalityIdAndPassword?nationalityId=${nationalityId}&password=${password}`
     );
   }
 }

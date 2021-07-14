@@ -1,9 +1,9 @@
-import axios from "axios";
+import axios from "./axios/axios";
 
 export default class JobAdvertisementService{
 
     getAllJobAdvertisement()
     {
-        return axios.get("http://localhost:8070/api/JobAdvertisements/getall");
+        return axios.get("/JobAdvertisements/getall");
     }
 }
