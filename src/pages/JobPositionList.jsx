@@ -1,5 +1,6 @@
 import React from "react";
 import { useState,useEffect } from "react";
+import { Link } from "react-router-dom";
 import JobPositionService from "../services/JobPositionService"
 export default function JobPositionList() {
 
@@ -21,7 +22,10 @@ export default function JobPositionList() {
           </div>
           <div className="row">
             {jobPositions.map((jobPosition) => (
-              <div key={jobPosition.id} className="col-md-6 col-lg-3  align-items-stretch mb-3">
+              <div
+                key={jobPosition.id}
+                className="col-md-6 col-lg-3  align-items-stretch mb-3"
+              >
                 <div
                   className="icon-box"
                   data-aos="fade-up"
@@ -31,11 +35,9 @@ export default function JobPositionList() {
                     <i className="fab fa-react"></i>
                   </div>
                   <h4 className="title">
-                    <a href={"".toString()}>{jobPosition.positionName}</a>
+                    <Link to="/NotFound">{jobPosition.positionName}</Link>
                   </h4>
-                  <p className="description">
-
-                  </p>
+                  <p className="description"></p>
                 </div>
               </div>
             ))}

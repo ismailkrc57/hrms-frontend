@@ -7,7 +7,7 @@ function Dashboard(props) {
     <div>
       <JobPositionList />
       <JobSeekerList />
-      <JobAdvertisementList />
+      {/* <JobAdvertisementList /> */}
     </div>
   );
 }

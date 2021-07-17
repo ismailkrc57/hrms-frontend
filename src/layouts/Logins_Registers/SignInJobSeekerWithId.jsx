@@ -13,7 +13,7 @@ export default function SignInJobSeekerWithId() {
   let history = useHistory();
 
   const initialValues = {
-    nationalityId:"",
+    nationalityId: "",
     password: "",
   };
   const schema = Yup.object({
@@ -38,7 +38,7 @@ export default function SignInJobSeekerWithId() {
             hideProgressBar: true,
             closeOnClick: true,
           });
-          dispatch(signIn(jbs.data.data));
+          dispatch(signIn({ type: 0, user: jbs.data.data }));
           history.push("/");
         } else {
           toast.error("Please Check informations", {
