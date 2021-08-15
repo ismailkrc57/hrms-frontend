@@ -25,7 +25,7 @@ export default function SignUpEmployer() {
     phoneNumber: Yup.string()
       .matches(phoneRegExp, "Phone number is not valid")
       .required("phone Number required"),
-    mail:Yup.string().email().required("mail reqired"), 
+    mail: Yup.string().email().required("mail reqired"),
     webSite: Yup.string()
       .matches(webSiteRegExp, "enter correct format webiste")
       .required("webSite required"),
@@ -39,7 +39,7 @@ export default function SignUpEmployer() {
   });
 
   const handleSubmit = (values) => {
-      console.log(values)
+    console.log(values);
     const employerService = new EmployerService();
     employerService.adEmployer(values).then((msg) => {
       if (msg.data.success) {
@@ -188,10 +188,12 @@ export default function SignUpEmployer() {
                           </button>
                         </div>
                       </div>
-                      <div className="row">
+                      <div className="row d-block">
                         <Link to="/SignInEmployer">
                           I already have an <b> Account?</b>
                         </Link>
+                      </div>
+                      <div className="row d-block mt-2">
                         <Link to="/SignUpJobSeeker">
                           I am <b> JobSeeker</b>
                         </Link>

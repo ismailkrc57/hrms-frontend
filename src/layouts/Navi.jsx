@@ -5,16 +5,17 @@ import React from "react";
 import SignedOut from "./SignedOut";
 import SignedIn from "./SignedIn";
 import { Link } from "react-router-dom";
-import { useDispatch,useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { signOut } from "../store/actions/userActions";
+import Search from "./Search";
 
 export default function Navi() {
- const dispatch = useDispatch()
- const {user} = useSelector(state => state.userReducer)
+  const dispatch = useDispatch();
+  const { user } = useSelector((state) => state.userReducer);
 
- function handleSignOut(params) {
-   dispatch(signOut({type:-1,user:{}}));
- }
+  function handleSignOut(params) {
+    dispatch(signOut({ type: -1, user: {} }));
+  }
 
   return (
     <div>
@@ -52,15 +53,9 @@ export default function Navi() {
               </li>
             </ul>
             <form className="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-              <input
-                type="search"
-                className="form-control"
-                placeholder="Search..."
-                aria-label="Search"
-              />
+              <Search />
             </form>
-            {/* {isAuthenticated ? <SignedIn signOut = {handleSignOut} /> : <SignedOut signIn={handleSignIn} />} */}
-            {user.type!==-1 ? (
+            {user.type !== -1 ? (
               <SignedIn signOut={handleSignOut} />
             ) : (
               <SignedOut />

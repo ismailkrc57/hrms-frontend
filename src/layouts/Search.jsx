@@ -1,28 +1,28 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { Button, Dropdown } from "semantic-ui-react";
 
 export default function Search() {
+  const options = [
+    { key: "edit", icon: "edit", text: "Edit Post", value: "edit" },
+    { key: "delete", icon: "delete", text: "Remove Post", value: "delete" },
+    { key: "hide", icon: "hide", text: "Hide Post", value: "hide" },
+  ];
+
   return (
     <div className="mr-0">
-      <form className="form-inline my-2 my-lg-0 mr-0 ">
-        <ul className="p-10">
-          <li>
-            <input
-              className="form-control"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
-          </li>
-          <li>
-            <button
-              className="btn btn-outline-success my-2 my-sm-0"
-              type="submit"
-            >
-              Search
-            </button>
-          </li>
-        </ul>
-      </form>
+      <Button.Group color="blue">
+        <Button as={Link} to="/NotFound">
+          Post a Job
+        </Button>
+        <Dropdown
+          
+          className="button icon"
+          floating
+          options={options}
+          trigger={<Link to ="/NotFound"></Link>}
+        />
+      </Button.Group>
     </div>
   );
 }

@@ -194,12 +194,14 @@ export default function SignUpJobSeeker() {
                           </button>
                         </div>
                       </div>
-                      <div className="row">
+                      <div className="row d-block">
                         <Link to="/SignInJobSeeker">
                           I already have an <b> Account?</b>
                         </Link>
+                      </div>
+                      <div className="row d-block mt-2">
                         <Link to="/SignUpEmployer">
-                          I  am <b> Corporate</b>
+                          I am <b> Corporate</b>
                         </Link>
                       </div>
                     </div>

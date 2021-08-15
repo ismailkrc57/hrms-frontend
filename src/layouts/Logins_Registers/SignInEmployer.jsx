@@ -96,7 +96,15 @@ export default function SignInEmployer() {
                   >
                     Sign In{" "}
                     <b>
-                      <span style={{fontSize:"25px", color:"#F50057",fontWeight:"bold"}}>Employer</span>
+                      <span
+                        style={{
+                          fontSize: "25px",
+                          color: "#F50057",
+                          fontWeight: "bold",
+                        }}
+                      >
+                        Employer
+                      </span>
                     </b>
                   </h1>
                   <div className="row" style={{ marginBottom: 4 }}>
@@ -143,12 +151,12 @@ export default function SignInEmployer() {
                           </button>
                         </div>
                       </div>
-                      <div className="row">
+                      <div className="row d-block">
                         <Link to="/SignUpEmployer">
                           I don't have an <b> Account?</b>
                         </Link>
                       </div>
-                      <div className="row mt-4">
+                      <div className="row d-block mt-2">
                         <Link to="/SignInJobSeeker">
                           I am <b>JobSeeker</b>
                         </Link>

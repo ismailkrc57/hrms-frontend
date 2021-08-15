@@ -154,12 +154,12 @@ export default function SignInJobSeeker() {
                           </button>
                         </div>
                       </div>
-                      <div className="row">
+                      <div className="row d-block">
                         <Link to="/SignUpJobSeeker">
                           I don't have an <b> Account?</b>
                         </Link>
                       </div>
-                      <div className="row mt-4">
+                      <div className="row d-block mt-2">
                         <Link to="/SignInEmployer">
                           I am <b>Corporate</b>
                         </Link>
