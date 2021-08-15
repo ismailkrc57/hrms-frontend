@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import * as Yup from "yup";
 import KrcTextInput from "../../utilities/CustomFormElements/KrcTextInput";
 import { toast } from "react-toastify";
-import JobSeekerService from "../../services/JobSeekerService";
 import EmployerService from "../../services/EmployerService";
 
 export default function SignUpEmployer() {
