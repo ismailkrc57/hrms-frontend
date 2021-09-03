@@ -5,6 +5,8 @@ import * as Yup from "yup";
 import KrcTextInput from "../../utilities/CustomFormElements/KrcTextInput";
 import { toast } from "react-toastify";
 import JobSeekerService from "../../services/JobSeekerService";
+import { useHistory } from "react-router";
+
 
 export default function SignUpJobSeeker() {
   const initialValues = {
@@ -35,15 +37,20 @@ export default function SignUpJobSeeker() {
     ),
   });
 
+  const history = useHistory();
   const handleSubmit = (values) => {
     const jobSeekerService = new JobSeekerService();
     jobSeekerService.addJobSeeker(values).then((msg) => {
       if (msg.data.success) {
         toast.success(msg.data.message);
+        history.push("/SignInJobSeeker")
       } else {
         toast.error(msg.data.message);
       }
+       
     });
+    
+   
   };
 
   return (
@@ -183,6 +190,7 @@ export default function SignUpJobSeeker() {
                       >
                         <div className="btn-group" role="group">
                           <button
+                        
                             className="btn btn-primary"
                             type="submit"
                             style={{

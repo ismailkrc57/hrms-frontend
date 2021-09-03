@@ -5,6 +5,7 @@ import * as Yup from "yup";
 import KrcTextInput from "../../utilities/CustomFormElements/KrcTextInput";
 import { toast } from "react-toastify";
 import EmployerService from "../../services/EmployerService";
+import { useHistory } from "react-router";
 
 export default function SignUpEmployer() {
   const phoneRegExp =
@@ -37,12 +38,14 @@ export default function SignUpEmployer() {
     ),
   });
 
+  const history = useHistory();
   const handleSubmit = (values) => {
     console.log(values);
     const employerService = new EmployerService();
     employerService.adEmployer(values).then((msg) => {
       if (msg.data.success) {
         toast.success(msg.data.message);
+        history.push("/SignInEmployer")
       } else {
         toast.error(msg.data.message);
       }
